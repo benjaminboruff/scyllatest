@@ -26,10 +26,10 @@ async fn main() -> Result<(), Box<dyn Error>> {
         .await?;
 
     // Insert a value into the table
-    // let to_insert: i32 = 123456789;
-    // session
-    //     .query("INSERT INTO ks.extab (a) VALUES(?)", (to_insert,))
-    //     .await?;
+    let to_insert: i32 = 123456789;
+    session
+        .query("INSERT INTO ks.extab (a) VALUES(?)", (to_insert,))
+        .await?;
 
     // Query rows from the table and print them
     if let Some(rows) = session.query("SELECT a FROM ks.extab", &[]).await?.rows {
